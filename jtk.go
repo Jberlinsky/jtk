@@ -14,7 +14,8 @@ func main() {
 	Dispatch = map[string]func([]string){
 		"ec2-resource-for-ip": Ec2ResourceForIp,
 
-		"help": Help,
+		"explode": Explode,
+		"help":    Help,
 	}
 
 	if binary == "leatherman" && len(args) > 1 {
