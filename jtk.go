@@ -18,7 +18,7 @@ func main() {
 		"help":    Help,
 	}
 
-	if binary == "leatherman" && len(args) > 1 {
+	if binary == "jtk" && len(args) > 1 {
 		args = args[1:]
 		binary = args[0]
 	}
