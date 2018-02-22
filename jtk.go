@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	"path"
 )
@@ -25,6 +26,7 @@ func main() {
 
 	fn, ok := Dispatch[binary]
 	if !ok {
+		fmt.Printf("Invalid command: %s %s\n\n", binary, args)
 		Help(os.Args)
 		os.Exit(1)
 	}
