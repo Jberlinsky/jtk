@@ -338,6 +338,10 @@ func ec2_instance_private(region string, sess *session.Session, ips []string, ou
 		awsIps = append(awsIps, aws.String(ip))
 	}
 
+	if verbose {
+		fmt.Printf("Looking for IPs [%s]\n", awsIps)
+	}
+
 	params := &ec2.DescribeInstancesInput{
 		Filters: []*ec2.Filter{
 			{
@@ -349,6 +353,10 @@ func ec2_instance_private(region string, sess *session.Session, ips []string, ou
 	resp, err := svc.DescribeInstances(params)
 	if err != nil {
 		return err
+	}
+
+	if verbose {
+		fmt.Println(resp)
 	}
 
 	for _, res := range resp.Reservations {
